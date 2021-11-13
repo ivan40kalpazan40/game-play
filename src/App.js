@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   const [page, setPage] = useState('/home');
@@ -15,6 +16,8 @@ function App() {
     '/home': <Home />,
     '/games': <Catalog />,
     '/create': <CreateGame />,
+    '/login': <Login />,
+    '/register': <Register />,
   };
 
   const navigationChangeHandler = (path) => {
@@ -23,15 +26,9 @@ function App() {
   return (
     <div id='box'>
       <Header navigationChangeHandler={navigationChangeHandler} />
-      {/* <!-- Main Content --> */}
-      <main id='main-content'>{routes[page] || <h2>No page found!</h2>}</main>
-      <Home />
-      <Login />
-      <Register />
-      <CreateGame />
-      <EditGame />
-      <Details />
-      <Catalog />
+      <main id='main-content'>
+        {routes[page] || <ErrorPage>An error occured</ErrorPage>}
+      </main>
     </div>
   );
 }
