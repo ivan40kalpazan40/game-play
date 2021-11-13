@@ -1,3 +1,5 @@
+import { useState, createElement } from 'react';
+
 import Catalog from './components/Catalog';
 import CreateGame from './components/CreateGame';
 import Details from './components/Details';
@@ -8,20 +10,21 @@ import Login from './components/Login';
 import Register from './components/Register';
 
 function App() {
+  const [page, setPage] = useState('/home');
   const routes = {
-    '/home': Home,
-    '/games': Catalog,
-    '/create': CreateGame,
+    '/home': <Home />,
+    '/games': <Catalog />,
+    '/create': <CreateGame />,
   };
 
   const navigationChangeHandler = (path) => {
-    console.log(path);
+    setPage(path);
   };
   return (
     <div id='box'>
       <Header navigationChangeHandler={navigationChangeHandler} />
       {/* <!-- Main Content --> */}
-      <main id='main-content'></main>
+      <main id='main-content'>{routes[page] || <h2>No page found!</h2>}</main>
       <Home />
       <Login />
       <Register />
