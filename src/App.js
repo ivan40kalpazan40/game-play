@@ -1,6 +1,6 @@
 import { useState, createElement } from 'react';
 
-import Catalog from './components/Catalog';
+import Catalog from './components/Catalog/Catalog';
 import CreateGame from './components/CreateGame';
 import Details from './components/Details';
 import EditGame from './components/EditGame';
