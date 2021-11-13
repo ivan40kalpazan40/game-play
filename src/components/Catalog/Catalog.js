@@ -13,12 +13,13 @@ const Catalog = () => {
   return (
     <section id='catalog-page'>
       <h1>All Games</h1>
-      {games.map((item) => (
-        <CatalogItem item={item} />
-      ))}
+      {games.length > 0 ? (
+        games.map((item) => <CatalogItem item={item} key={item._id} />)
+      ) : (
+        <h3 className='no-articles'>No articles yet</h3>
+      )}
 
       {/* <!-- Display paragraph: If there is no games  --> */}
-      <h3 className='no-articles'>No articles yet</h3>
     </section>
   );
 };
