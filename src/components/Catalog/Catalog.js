@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CatalogItem from './CatalogItem';
+import * as gameService from '../../services/gameServices';
 
 const Catalog = () => {
   const [games, setGames] = useState([]);
@@ -7,12 +8,10 @@ const Catalog = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:3030/data/games?sortBy=_createdOn%20desc')
-      .then((res) => res.json())
-      .then((response) => {
-        setGames(response);
-        setLoading(false);
-      });
+    gameService.getAll().then((response) => {
+      setGames(response);
+      setLoading(false);
+    });
   }, []);
   return (
     <section id='catalog-page'>
