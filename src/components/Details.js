@@ -1,7 +1,7 @@
-const Details = () => {
-    return (
-        //{/* <!--Details Page--> */}
-      <section id='game-details'>
+const Details = ({ id }) => {
+  return (
+    //{/* <!--Details Page--> */}
+    <section id='game-details'>
       <h1>Game Details</h1>
       <div className='info-section'>
         <div className='game-header'>
@@ -12,11 +12,11 @@ const Details = () => {
         </div>
 
         <p className='text'>
-          Set in a world where fantasy creatures live side by side with
-          humans. A human cop is forced to work with an Orc to find a weapon
-          everyone is prepared to kill for. Set in a world where fantasy
-          creatures live side by side with humans. A human cop is forced to
-          work with an Orc to find a weapon everyone is prepared to kill for.
+          Set in a world where fantasy creatures live side by side with humans.
+          A human cop is forced to work with an Orc to find a weapon everyone is
+          prepared to kill for. Set in a world where fantasy creatures live side
+          by side with humans. A human cop is forced to work with an Orc to find
+          a weapon everyone is prepared to kill for.
         </p>
 
         {/* <!-- Bonus ( for Guests and Users ) --> */}
@@ -56,7 +56,7 @@ const Details = () => {
         </form>
       </article>
     </section>
-    )
-}
+  );
+};
 
-export default Details
+export default Details;
